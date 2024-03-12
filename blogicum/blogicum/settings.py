@@ -57,7 +57,7 @@ TEMPLATES_DIR = BASE_DIR / 'templates'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
-] 
+]
 
 TEMPLATES = [
     {
