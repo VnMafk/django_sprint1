@@ -8,7 +8,6 @@
         </a>        
         <ul class="nav  nav-pills">
           {% with request.resolver_match.view_name as view_name %}
-          {% endwith  %}
           <li class="nav-item">
             <a class="nav-link 
             {% if view_name == 'blog:index'%}
@@ -36,7 +35,8 @@
               Наши правила
             </a>
           </li>
-        </ul>      
+        </ul>
+      {% endwith  %}      
       </div>
     </nav> 
   </header>
