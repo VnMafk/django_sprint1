@@ -44,22 +44,20 @@ posts = [
     },
 ]
 
-post_id = {post['id']: post for post in posts}
+posts_id = {post['id']: post for post in posts}
 
 
 def index(request):
-    context = {'post': reversed(posts)}
-    return render(request, 'blog/index.html', context)
+    return render(request, 'blog/index.html', {'post': reversed(posts)})
 
 
 def post_detail(request, id):
-    if id not in post_id:
+    if id not in posts_id:
         raise Http404('Страница не найдена!')
-    else:
-        context = {'post': post_id[id]}
-        return render(request, 'blog/detail.html', context)
+    return render(request, 'blog/detail.html', context={'post': posts_id[id]})
 
 
 def category_posts(request, category_slug):
-    context = {'category_slug': category_slug}
-    return render(request, 'blog/category.html', context)
+    return render(request,
+                  'blog/category.html',
+                  {'category_slug': category_slug})
